@@ -9,17 +9,13 @@ from tkinter import *
 
 stop_spam = False
 
-def is_discord_open():
-    discord_windows = gw.getWindowsWithTitle('Discord')
-    return len(discord_windows) > 0
-
 def spam_hello_world():
     global stop_spam
+    start_button.config(state='disabled')
     countdown_label.config(text='Spam Started')
     while not stop_spam:
-        if is_discord_open():
-            pyautogui.typewrite('Nigg8')
-            pyautogui.press('enter')
+        pyautogui.typewrite('Nigg8')
+        pyautogui.press('enter')
         time.sleep(0.5)
 
 def stop_program(): #easter egg
@@ -31,25 +27,21 @@ def stop_program(): #easter egg
 
 def countdown():
     global stop_spam
-    stop_spam = True
-    if not is_discord_open():
-        countdown_label.config(text='Open Discord, then start')
-        return
+    stop_spam = False
     for i in range(5, 0, -1):
         countdown_label.config(text=str(i))
         time.sleep(1)
-    stop_spam = False
     countdown_label.config(text='')
-    spam_thread = threading.Thread(target=spam_hello_world)
-    spam_thread.start()
+    spam_hello_world()
 
 
 def start_spam():
     global spam_thread, stop_spam
-    if not stop_spam:    
-        countdown_thread = threading.Thread(target=countdown)
-        countdown_thread.start()
-        start_button.config(state='disabled')  
+     
+    countdown_thread = threading.Thread(target=countdown)
+    countdown_thread.start()
+    stop_program_thread = threading.Thread(target=stop_program)
+    stop_program_thread.start() 
         
 def on_closing():
     global stop_spam
@@ -88,7 +80,5 @@ author_text.pack(side='bottom', pady=5)
 
 countdown_label = Label(root, text='', font=('Segoe UI', 20), bg='#212121', fg='white')
 countdown_label.place(relx=0.5, rely=0.7, anchor='center')
-stop_program_thread = threading.Thread(target=stop_program)
-stop_program_thread.start()
 
 root.mainloop()
