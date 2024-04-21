@@ -18,7 +18,7 @@ def spam_hello_world():
     countdown_label.config(text='Spam Started')
     while not stop_spam:
         if is_discord_open():
-            pyautogui.typewrite('Nigg8')
+            pyautogui.typewrite('Hello there!')
             pyautogui.press('enter')
         time.sleep(0.5)
 
