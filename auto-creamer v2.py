@@ -22,7 +22,7 @@ def spam_hello_world():
             pyautogui.press('enter')
         time.sleep(0.5)
 
-def stop_program(): #easter egg
+def stop_program():
     global stop_spam
     keyboard.wait('5')
     stop_spam = True
