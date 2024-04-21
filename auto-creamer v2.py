@@ -67,7 +67,7 @@ if getattr(sys, 'frozen', False):
     icon_directory = os.path.join(sys._MEIPASS, 'icon.ico')
 else:
     icon_directory = 'icon.ico'
-root.iconbitmap('icon.ico')
+root.iconbitmap(icon_directory)
 
 title_label = Label(root, text='Auto Creamer V2', font=('Segoe UI', 20), fg='white', bg='#212121')
 title_label.place(relx=0.5, rely=0.3, anchor='center')
