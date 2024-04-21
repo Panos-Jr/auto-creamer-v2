@@ -1,2 +1,2 @@
 # auto-creamer-v2
-Basic UI for auto-creamer UI (for entertainment purposes only)
+Basic UI for auto-creamer V2 (for entertainment purposes only)
