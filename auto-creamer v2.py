@@ -72,7 +72,6 @@ root.iconbitmap(icon_directory)
 title_label = Label(root, text='Auto Creamer V2', font=('Segoe UI', 20), fg='white', bg='#212121')
 title_label.place(relx=0.5, rely=0.3, anchor='center')
 
-# Create the button
 button_font = ("Segoe UI", 18)
 button_bg = "#212121"
 button_fg = "white"
